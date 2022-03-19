@@ -7,16 +7,13 @@
 
 import SwiftUI
 
-
-// يجب عمل هيكل وكائنات من الهيكل
-
-
 struct ContentView: View {
     var body: some View {
         ZStack{
             Color.gray
                 .opacity(0.3)
                 .ignoresSafeArea()
+            
             VStack{
                 Image("corona")
                     .resizable()
@@ -24,38 +21,23 @@ struct ContentView: View {
                 Text("حالات كورونا الجديدة")
                     .font(.system(size: 30, weight: .bold, design: .default))
                     .padding()
+            
+               
                 // name of new cases
-                VStack{
-        // الحالة الأولى
-                // الاسم
-               Text("")
+                List(people, id: \.id){ i in
+                   
+                    Text("name : \(i.fullname)")
 // المنطقة
-                Text("")
+                Text("Area : \(i.area)")
                     // عدد الجرعات
-               Text("")
+                Text("number of doses : \(i.numberOfDoses)")
 
+                }
+                
+              
                 Divider()
-                }
-                VStack{
-        // الحالة الثانية
-                // الاسم
-               Text("")
-                // المنطقة
-               Text("")
-    // عدد الجرعات
-               Text("")
-
-                Divider()
-                }
-                VStack{
-              // الحالة الثالثة
-                      // الاسم
-                     Text("")
-                      // المنطقة
-                     Text("")
-          // عدد الجرعات
-                     Text("")
-                }
+                
+                
                 Spacer()
                 HStack{
                     Text("آخر تحديث ١٥-٣-٢٠٢٢")
